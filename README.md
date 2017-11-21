@@ -25,5 +25,21 @@
 		getter function for the text vector of language
 	}
 	
+4. What files will you need to create? 
+	We'll need a language.h file, a language.cpp file, a main.cpp to run tests, and a compile script for making compiling simple.
 	
-4.
+5. For Milestone 1, how will your main() be structured?
+	Our main will take the string input, check that the input is correct, use it as a parameter to open an infile stream, and then
+	create a new language object with the infile stream as a parameter to the constructor. The language object will handle reading the file,
+	and save the file's contents to a vector. The main will then call the compute method of the language class, 
+	which will output the frequencies.
+	
+6. For Milestone 2, how will your main() be structured?
+	Our main will take 2 or more arguments, and check that there is 2 or more and that they are correct. Then it will take the first n-1 files, 
+	and turn them into language objects. The nth file will also become a language object. It will then call the compute method of each object.
+	The main() will then call the compare() method for each n-1 object, comparing it to the nth one. Lastly, it will return whichever object
+	had the highest frequency.
+	
+7. What libaries will you need?
+	We'll need the c standard library, string library, the iostream and fstream libraries, and the vector library.
+	
