@@ -1,0 +1,21 @@
+notes on final project
+
+Based on your design document, I am reasonably confident as to your ability to complete 
+the final project successfully, but I have some concerns.
+
+You have detailed some useful small problems into which you can break your project, 
+but left out some important ones. For example, how will you determine which language is most similar to the query? 
+How will you represent the trigram frequencies for a language? How will you associate the name of a language with its trigram frequencies?
+
+You've said a few things in your description of your language class that concern me. You've got several vectors, 
+but you haven't said what they contain. Remember that std::vector is a templated type; you can't just have a std::vector, 
+it has to be a std::vector of integers, or of some other concrete type.
+
+You also appear to be storing the entire text of each language document in the language object. 
+Ask yourself why you're doing this. Do you need it later? Or can you just compute trigram frequencies while reading the file?
+
+For milestone 1, you state that you'll create an input file stream. 
+There's no file I/O in milestone 1; you read a string from the command line. File I/O is only in milestone 2.
+
+For milestone 2, you say you'll return the object with the highest frequency. 
+But that's not correct. You want to print out the name of the language (file) that is *most similar* to the query.
