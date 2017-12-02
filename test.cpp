@@ -17,21 +17,15 @@ std::vector<int> countTrigrams(std::string text){//takes a string for milestone 
     for (int i = 0; i < (int) text.length() - 2; i+=1) {
         std::string trigram = text.substr(i,3);
         std::cout << trigram << std::endl;
-        std::string a = trigram.substr(0,1);
-        std::string b = trigram.substr(1,1);
-        std::string c = trigram.substr(2,1);
-        
-        const char* c_string = a.c_str(); 
-        int indexa = atoi(c_string);
-        c_string = b.c_str();
-        int indexb = atoi(c_string);
-        c_string = c.c_str();
-        int indexc = atoi(c_string);
+        int indexa = trigram[0];
+        int indexb = trigram[1];
+        int indexc = trigram[2];
         
         int index = indexa * 729 + indexb * 27 + indexc;
         std::cout << index << std::endl;
+        //error here, wong save to frequencies
         frequencies[index] = frequencies[index] + 1;
-        
+        //std::cout << frequencies[index] << std::endl;
     }
     
     return frequencies;
@@ -52,4 +46,7 @@ int main(){
     printFreq(frequencies);
     
 }
+
+
+
 
