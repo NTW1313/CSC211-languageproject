@@ -7,6 +7,7 @@
 #include <iostream>
 
 
+
     
 //chars to look for are lowercase a-z (97-122), space (' ') (032), and newline ('\n'). 
 std::vector<int> countTrigrams(std::string text){//takes a string for milestone 1
@@ -18,7 +19,7 @@ std::vector<int> countTrigrams(std::string text){//takes a string for milestone 
     
     for (int i = 0; i < (int) text.length() - 2; i+=1) {
         std::string trigram = text.substr(i,3);
-        std::cout << trigram << std::endl;
+        
 		//get the ascii code for each char
         int indexa = trigram[0];
         int indexb = trigram[1];
@@ -38,12 +39,12 @@ std::vector<int> countTrigrams(std::string text){//takes a string for milestone 
 		//	ascii code and putting it into a equation like this: for trigram "abc", a * 27^(2) + b * 27 + c
 		//	that way, the order of the frequencies in our frequencies vector will always be the same, based on the possible trigrams
 		//	(or something like that)
-        std::cout << index << std::endl;
+        
         //error here, wrong save to frequencies
         frequencies[index] = frequencies[index] + 1; // Is the double length going to have any involvement down the code?
 		//answer: not really, its just so that we have a vector of size 27^(3) filled with zeros to start with.
-        //std::cout << frequencies[index] << std::endl;
-        std::cout << "frequencies[index] = " << frequencies[index] << std::endl;
+       
+        
     }
     
     return frequencies; // What are we trying to return it as?
@@ -53,20 +54,24 @@ std::vector<int> countTrigrams(std::string text){//takes a string for milestone 
 }
 
 void printFreq(std::vector<int> frequencies){
-    for(int i = 0; i < frequencies.size(); i++){
+    for(unsigned i = 0; i < frequencies.size(); i++){
         std::cout << frequencies[i];
         std::cout << " ";
     }
     
 }
 
-int main(){
-    std::string testInput = "this is a test";
-    std::vector<int> frequencies = countTrigrams(testInput);
-    printFreq(frequencies);
+int main(int argc, char *argv[]){
+	if (argc != 2) {
+		std::cerr << "Please provide input with quotation marks surrounding it to test for trigrams" << std::endl;
+		exit(EXIT_FAILURE);
+	} else {
+		std::string testInput = argv[1];
+		std::vector<int> frequencies = countTrigrams(testInput);
+		printFreq(frequencies);
+	}
     
 }
-
 
 
 
