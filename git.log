@@ -1,3 +1,49 @@
+commit 8de18f35a86e1521a950302e02653610b387e439
+Author: NT Wallace <ntw1313@gmail.com>
+Date:   Mon Dec 4 17:24:26 2017 -0500
+
+    Compile script added
+    
+    Code compiles to the frequencies executable
+
+commit 89aa4baaa05cf453229117321b756e7f8b508ecc
+Author: NT Wallace <ntw1313@gmail.com>
+Date:   Sun Dec 3 14:02:35 2017 -0500
+
+    Code running
+    
+    Code compiles, output needs to be cleaned up and compile file added
+
+commit 02872682ce5371d266623bf11805952c66bca4ee
+Author: Aman101160 <31968116+Aman101160@users.noreply.github.com>
+Date:   Sat Dec 2 20:44:37 2017 -0500
+
+    Update test.cpp
+
+commit ac194369e343a46d64a33cb2e11a187e9785b22c
+Author: NT Wallace <ntw1313@gmail.com>
+Date:   Sat Dec 2 18:52:05 2017 -0500
+
+    Ascii codes running
+    
+    error with frequencies vector
+
+commit 7e94a14c2835e659e5736c17e1e60114a4831f10
+Author: NT Wallace <ntw1313@gmail.com>
+Date:   Sat Dec 2 17:25:28 2017 -0500
+
+    Added test.cpp
+    
+    Needs fix in countTrigrams(), atoi not getting int
+
+commit d97948e2d84d7343d18c1f5a8f8acd89518a2e9f
+Author: NT Wallace <ntw1313@gmail.com>
+Date:   Fri Dec 1 14:43:13 2017 -0500
+
+    Added notes
+    
+    Added a text file containing Prof. Daniel's notes on our design doc
+
 commit c86863cc90938e0414ed890231685c966e9ec9e7
 Author: NT Wallace <ntw1313@gmail.com>
 Date:   Mon Nov 20 19:24:35 2017 -0500
