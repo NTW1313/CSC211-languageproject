@@ -80,12 +80,12 @@ language language::countTrigrams(){
 
 
 
-std::vector<int>getFrequencies(){
+std::vector<int> language::getFrequencies(){
 	return frequencies;
 }
 
 
-std::string getlangName(){
+std::string language::getlangName(){
 	return langName;
 }
 
