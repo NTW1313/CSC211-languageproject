@@ -1,13 +1,12 @@
-//language.h
+#include <string>
+#include <vector>
+#include <fstream>
 
 #ifndef _language_h
 #define _language_h
 
-#include <string>
-#include <vector>
-#include <ifstream>
 
-
+//language.h
 class language{
 
 public:
@@ -15,21 +14,28 @@ public:
 	//default constructor
 	language();
 
+	
 	//parameterized constructor
 	//if the file isn't there, error out
 	language(std::string filename);
 	
-	getFrequencies(); 
-	getFilename();
+	language(std::string filename, std::vector<int> freq);
 	
-	//method to count trigrams frequencies given the file
-	std::vector<int> countTrigrams(std::string filename);
+	//method to count trigrams frequencies 
+	language countTrigrams();
+	
+	std::vector<int> getFrequencies();
+	
+	
+	std::string getlangName();
+	
+	
 
 private:
 	
 	std::string filename;
 	std::vector<int> frequencies;
 
-}
+};
 
 #endif

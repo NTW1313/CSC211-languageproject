@@ -1,10 +1,17 @@
 #!/bin/bash
 
 ######################################################
-#   Compiles test.cpp into the excutable frequencies  #
+#   Compiles revcomp.cpp into the excutable revcomp  #
 ######################################################
 
 set -e    # halt on first error
+
+link=all  # link all binaries by default
+linked=no # track whether we linked
+
+case $1 in  
+  -nolink) link=none ; shift ;;  # don't link
+esac
 
 # use 'clang++' as the compiler
 CPP=clang++
@@ -17,4 +24,8 @@ rm -f *.o
 
 # compile
 
-$CPP $FLAGS -o frequencies test.cpp
+case $link in
+  all) $CPP $FLAGS -o language main.cpp language.cpp
+                  linked=yes ;;
+  none) $CPP $FLAGS -c language.cpp main.cpp ;;
+esac
