@@ -13,7 +13,6 @@ std::string langName;
 
 language::language(){
 	langName = "";
-	
 }
 
 language::language(std::string filename) {
@@ -84,14 +83,9 @@ std::vector<int> language::getFrequencies(){
 	return frequencies;
 }
 
-
 std::string language::getlangName(){
 	return langName;
 }
-
-
-
-
 
 
 

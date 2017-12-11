@@ -6,53 +6,64 @@
 #include <iostream>
 #include <math.h>
 
+//cosine similarity function
+//double cos (double x);
+
+
+//method to compare a given language
+double compareFreq(language lang1, language lang2){
+	double len = pow(27.0, 3.0);
+	std::vector<int> a = lang1.getFrequencies();
+	std::vector<int> b = lang2.getFrequencies();
+	double num = 0.00; 
+	double denom1 = 0.00; 
+	double denom2 = 0.00;
+	for(unsigned i = 0; i < len; i++){
+		num += (a[i] * b[i]);
+		denom1 += (a[i] * a[i]);
+		denom2 += (b[i] * b[i]);
+	}
+		
+	// the formula for cosine
+	double fin = num / (sqrt(denom1)*sqrt(denom2));
+	return fin;
+}
 
 int main(int argc, char *argv[]){
-	std::vector<language>testfiles;
+	
 
-	if (argc < 2) { //if 2 arguements or less, error
-		std::cerr << "Please provide input with quotation marks surrounding it to test for trigrams" << std::endl;
+	if (argc <= 3) { //if 2 arguements or less, error
+		std::cerr << "Please provide filenames for language comparison" << std::endl;
 		exit(EXIT_FAILURE);
 	} else {
-		for(int i = 1; i < argc - 1; i++){
-			std::cout << argv[1] << std::endl;
-			language lang = language((std::string)argv[i]);
+		
+		std::vector<language>testfiles;
+		//for loop to make new language objects and store them in a vector
+		for(int i = 1; i < argc; i++){
+			language lang = language(argv[i]);
 			lang = lang.countTrigrams();
-			testfiles.push_back(lang);    // add new language objects to the vector
-			
+			testfiles.push_back(lang);
 		}
 		
+		
+		//update: that doesnt compile so nevermind
 		std::vector<double> similarities;
 		int testindex = testfiles.size() - 1;
-		double len = pow(27.0, 3.0);
-		std::vector<int> a = testfiles[testindex].getFrequencies();
-		//test similarity of the frequencies
-		for(unsigned j = 0; j < testfiles.size() - 2; j++){
-			std::vector<int> b = testfiles[j].getFrequencies();
-			double num = 0.00;
-			double denom1 = 0.00;
-			double denom2 = 0.00;
-			for(unsigned i = 0; i < len; i ++){
-				num += (a[i] * b[i]);
-				denom1 += (a[i] * a[i]);
-				denom2 += (b[i] * b[i]);
-			}
-			// the formular for cosine theta 
-			double fin = num / sqrt(denom1)*sqrt(denom2);
-			// Adds to the vector
+		for(int r = 0; r < testindex; r++){
+			double fin = compareFreq(testfiles[testindex], testfiles[r]);
 			similarities.push_back(fin);
-			
 		}
+		
+		//finds the max (the most similar file)
 		double max = similarities[0];
-		int index = 0;
+		int index;
 		for(unsigned k = 1; k < similarities.size(); k++){
 			if(similarities[k] > max){
 				max = similarities[k];
 				index = k;
 			}
 		}
-		std::cout << max << std::endl;
-		std::cout << testfiles[0].getlangName() << std::endl;
+		
 		std::string sim = testfiles[index].getlangName();
 		std::cout << sim << std::endl;
 		return 0;
@@ -61,7 +72,5 @@ int main(int argc, char *argv[]){
 	
 }
 
-//cosine similarity function
-//double cos (double x);
 
 

@@ -24,16 +24,19 @@ public:
 	//method to count trigrams frequencies 
 	language countTrigrams();
 	
+	
+	//gets the vector of frequencies
 	std::vector<int> getFrequencies();
 	
 	
+	//gets the name of the language
 	std::string getlangName();
 	
 	
 
 private:
 	
-	std::string filename;
+	std::string langName;
 	std::vector<int> frequencies;
 
 };
